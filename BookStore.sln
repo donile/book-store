@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{180A86EB-C60
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Api", "src\BookStore.Api\BookStore.Api.csproj", "{73408DF0-55A2-46FD-90A8-D8987E51F2AA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{46FA6902-7DF1-48B9-8637-DCCABD827F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Api.Tests.Integration", "test\BookStore.Api.Tests.Integration\BookStore.Api.Tests.Integration.csproj", "{FACDE118-E39A-4B6B-B5AB-6077DCFFC985}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{73408DF0-55A2-46FD-90A8-D8987E51F2AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73408DF0-55A2-46FD-90A8-D8987E51F2AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73408DF0-55A2-46FD-90A8-D8987E51F2AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACDE118-E39A-4B6B-B5AB-6077DCFFC985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACDE118-E39A-4B6B-B5AB-6077DCFFC985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACDE118-E39A-4B6B-B5AB-6077DCFFC985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACDE118-E39A-4B6B-B5AB-6077DCFFC985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{73408DF0-55A2-46FD-90A8-D8987E51F2AA} = {180A86EB-C603-4BD5-929F-630B59F7AD0F}
+		{FACDE118-E39A-4B6B-B5AB-6077DCFFC985} = {46FA6902-7DF1-48B9-8637-DCCABD827F69}
 	EndGlobalSection
 EndGlobal
