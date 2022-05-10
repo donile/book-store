@@ -1,0 +1,11 @@
+<Project>
+ <PropertyGroup>
+    <ArtifactsDirectory>$(MSBuildThisFileDirectory)/artifacts/</ArtifactsDirectory>
+    <BaseIntermediateOutputPath>$(ArtifactsDirectory)$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)/$(Configuration)/$(TargetFramework)/</IntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)/artifacts/$(MSBuildProjectName)/bin/</BaseOutputPath>
+    <OutputPath>$(BaseOutputPath)/$(Configuration)/$(TargetFramework)/</OutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+ </PropertyGroup>
+</Project>

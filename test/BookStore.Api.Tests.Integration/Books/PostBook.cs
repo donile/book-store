@@ -1,7 +1,6 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BookStore.Api;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
@@ -14,7 +13,7 @@ public class PostBook
   public async Task InsertsBookInDatabase()
   {
     // arrange
-    var factory = new WebApplicationFactory<Program>();
+    var factory = new WebApplicationFactory<BookStore.Api.Program>();
     var httpClient = factory.CreateClient();
     var request = new HttpRequestMessage
     {
