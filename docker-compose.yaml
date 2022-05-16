@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile 
+      target: app
+    ports:
+      - "80:80"
+  test-runner:
+    container_name: test-runner
+    build:
+      context: .
+      dockerfile: dockerfile
+      target: test-runner
+  postgres:
+    image: postgres:14.2-alpine
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
