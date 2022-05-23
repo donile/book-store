@@ -12,6 +12,11 @@ RUN dotnet build ./test/BookStore.Api.Tests.Integration/BookStore.Api.Tests.Inte
 RUN dotnet publish ./src/BookStore.Api/BookStore.Api.csproj --no-build --runtime linux-musl-x64 --self-contained true --configuration Release
 
 
+FROM ghcr.io/donile/evolve:3.0.0 AS db-migrator
+WORKDIR /code
+COPY db db 
+
+
 FROM mcr.microsoft.com/dotnet/sdk:6.0.300-alpine3.15 AS test-runner
 COPY --from=builder /code/artifacts /code/artifacts
 CMD ["tail", "-F", "anything"]
