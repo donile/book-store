@@ -32,7 +32,7 @@ $ docker exec test-runner dotnet test --no-restore --output /code/artifacts/bin/
 ## Apply Database Migration
 
 ```
-$ evolve migrate postgresql -c "Server=127.0.0.1;Database=postgres;User Id=postgres;Password=postgres;" -l "db/migrations"
+$ docker exec db-migrator evolve migrate postgresql -c "Server=postgres;Database=postgres;User Id=postgres;Password=postgres;" -l "db/migrations"
 ```
 
 

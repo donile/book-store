@@ -12,6 +12,12 @@ services:
       context: .
       dockerfile: dockerfile
       target: test-runner
+  db-migrator:
+    container_name: db-migrator
+    build:
+      context: .
+      dockerfile: dockerfile
+      target: db-migrator
   postgres:
     image: postgres:14.2-alpine
     ports:
