@@ -4,4 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - run: docker build -t book-store-api --target app -f dockerfile .
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: build app container image
+        run: docker build -t book-store-api --target app -f dockerfile .
