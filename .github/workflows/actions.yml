@@ -19,5 +19,5 @@ jobs:
       - name: apply database migrations
         run: docker exec db-migrator evolve migrate postgresql -c "Server=postgres;Database=postgres;User Id=postgres;Password=postgres;" -l "db/migrations"
       - name: run integration tests
-        run: docker exec test-runner dotnet test --no-restore --output /code/artifacts/bin/Release/net6.0/linux-musl-x64
+        run: docker exec test-runner dotnet test /code/artifacts/BookStore.Api.Tests.Integration/bin/Release/net6.0/BookStore.Api.Tests.Integration.dll
 
