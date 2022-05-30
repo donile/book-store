@@ -12,7 +12,7 @@ $ dotnet build
 ## Build container image
 
 ```
-docker build -t book-store-api .
+docker build -t book-store-api --target app .
 ```
 
 
@@ -25,7 +25,7 @@ $ docker run -p 80:80 book-store-api sh -c /code/publish/BookStore.Api
 ## Run Integration Tests (within docker compose network)
 
 ```
-$ docker exec test-runner dotnet test --no-restore --output /code/artifacts/bin/Release/net6.0/linux-musl-x64
+$ docker exec test-runner dotnet test /code/artifacts/BookStore.Api.Tests.Integration/bin/Release/net6.0/BookStore.Api.Tests.Integration.dll
 ```
 
 
