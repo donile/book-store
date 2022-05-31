@@ -1,0 +1,22 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    permissions:
+      packages: write
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: login to ghcr
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login --username ${GITHUB_ACTOR} --password-stdin ghcr.io
+      - name: build app container image
+        run: docker build -t book-store-api --target app -f dockerfile .
+      - name: docker compose up
+        run: docker compose up -d
+      - name: sleep (to allow db to start)
+        run: sleep 20s
+      - name: apply database migrations
+        run: docker exec db-migrator evolve migrate postgresql -c "Server=postgres;Database=postgres;User Id=postgres;Password=postgres;" -l "db/migrations"
+      - name: run integration tests
+        run: docker exec test-runner dotnet test /code/artifacts/BookStore.Api.Tests.Integration/bin/Release/net6.0/BookStore.Api.Tests.Integration.dll
