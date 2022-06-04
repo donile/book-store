@@ -1,0 +1,13 @@
+###
+POST http://localhost:5295/books
+Content-Type: application/json
+
+{
+    "author": "Robin Hobb",
+    "title": "Assassin's Apprentice" 
+}
+
+
+###
+GET http://localhost:5295/books/6ff7afdb-2b6c-4395-92ba-c0edd471106c
+Accept: application/json
