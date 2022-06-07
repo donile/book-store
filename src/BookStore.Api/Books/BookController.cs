@@ -6,10 +6,20 @@ namespace BookStore.Api.Books;
 [Route("/books")]
 public class BookController : ControllerBase
 {
-  [HttpPost]
-  public ActionResult PostBook()
+  private readonly Repository<Book> _repository;
+
+  public BookController(Repository<Book> repository)
   {
-    var route = Url.RouteUrl(nameof(GetBook), new { bookId = Guid.NewGuid() });
+    _repository = repository;
+  }
+
+  [HttpPost]
+  public ActionResult PostBook(Book book)
+  {
+    _repository.Insert(book);
+    _repository.SaveChanges();
+
+    var route = Url.RouteUrl(nameof(GetBook), new { bookId = book.Id });
 
     return Created(route!, null);
   }

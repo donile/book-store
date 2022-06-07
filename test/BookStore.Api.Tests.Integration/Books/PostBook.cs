@@ -14,10 +14,19 @@ public class PostBook
     // arrange
     var factory = new CustomWebApplicationFactory<BookStore.Api.Program>();
     var httpClient = factory.CreateClient();
+    
+    var book = @"
+      {
+        ""author"": ""author"",
+        ""title"": ""title""
+      }
+    ";
+
     var request = new HttpRequestMessage
     {
       Method = HttpMethod.Post,
-      RequestUri = new System.Uri("books", System.UriKind.Relative)
+      RequestUri = new System.Uri("books", System.UriKind.Relative),
+      Content = new StringContent(book, System.Text.Encoding.UTF8, "application/json")
     };
 
     // act
